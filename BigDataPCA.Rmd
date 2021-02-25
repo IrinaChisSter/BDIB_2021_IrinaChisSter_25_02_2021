@@ -144,7 +144,7 @@ knitr::opts_chunk$set(echo = TRUE)
 -   Let's assume that X, Y are continuous denoted by
     $X=(x_1, x_2, ..., x_n)$ and$Y=(y_1, y_2, ..., y_n)$
 
-    -   $Cov(X, Y)=\frac{(x_1-\mu_X)\times(y_1-\mu_Y)+(x_2-\mu_X)\times(y_2-\mu_Y)+...(x_n-\mu_X)\times(y_n-\mu_Y)}{}$
+    -   $Cov(X, Y)=\frac{(x_1-\mu_X)\times(y_1-\mu_Y)+(x_2-\mu_X)\times(y_2-\mu_Y)+...(x_n-\mu_X)\times(y_n-\mu_Y)}{n-1}$
         , $Cov(X, Y)=Var(X)$
 
     -   $Cor(X, Y)=\frac{Cov(X, Y)}{𝑆𝐷(𝑋)\times𝑆𝐷(𝑌)}$ always between
@@ -153,15 +153,12 @@ knitr::opts_chunk$set(echo = TRUE)
     -   $\begin{bmatrix} Var(X) & Cov(X, Y) \\ Cov(X, Y) & Var(Y) \\ \end{bmatrix}$
         variance-covariance matrix
 
-    -   \$\\begin{bmatrix} 1 & Cor(X, Y) \\\\ Cor(X, Y) & 1 \\\\
-        \\end{bm (S denoted in the R code)
-
-    -   
-
-    -   atrix}\$ variance-covariance matrix
+    -   $\begin{bmatrix} 1 & Cor(X, Y) \\ Cor(X, Y) & 1 \\ \end{bmatrix}$
+        correlation matrix
+    
 
 -   Both matrices ALWAYS square (dimension of the complete data columns)
-    and symmetric
+    and symmetric. They are denoted by S (variance) and R (correlation) in the code below 
 
 -   Given a dataset, it is [***these two matrices***]{.ul} containing
     the variability in the data which play a central role in data
@@ -238,9 +235,11 @@ Sigma
 ## set the same seed for the simulations to obtain similar numbers
 set.seed(54321)
 
-##generate/simulate a normal distribution with mean 10 and standard deviation=4)
+##generate/simulate a normal distribution with mean 20 and standard deviation=5)
 norm <- rnorm(1000, 20, 5)
 sum<-summary(norm)
+sum
+sd(norm)
 hist(norm)
  
 #Generate two variables sampled from a bivariate normal distribution with means 50 and 10, variances 10 and 2 and 
@@ -273,7 +272,7 @@ contour(bivn.kde, add = TRUE)     # from base graphics package
 ```{r }
 #2-dimensional plot of the data
 names(sim.data)
-
+sim.data
 #Create scatter plot of variable 1 vs. variable 2
 plot(scale(sim.data$X1, scale= TRUE), scale(sim.data$X2, scale = TRUE), ylab = "Var2", xlab = "Var1", asp = 1, cex.lab=1.5, cex.axis = 1.5)
 
