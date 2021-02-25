@@ -145,7 +145,7 @@ knitr::opts_chunk$set(echo = TRUE)
     $X=(x_1, x_2, ..., x_n)$ and$Y=(y_1, y_2, ..., y_n)$
 
     -   $Cov(X, Y)=\frac{(x_1-\mu_X)\times(y_1-\mu_Y)+(x_2-\mu_X)\times(y_2-\mu_Y)+...(x_n-\mu_X)\times(y_n-\mu_Y)}{n-1}$
-        , $Cov(X, Y)=Var(X)$
+        , $Cov(X, X)=Var(X)$
 
     -   $Cor(X, Y)=\frac{Cov(X, Y)}{𝑆𝐷(𝑋)\times𝑆𝐷(𝑌)}$ always between
         [0,1] $Cor(X, X)=1$
@@ -155,10 +155,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
     -   $\begin{bmatrix} 1 & Cor(X, Y) \\ Cor(X, Y) & 1 \\ \end{bmatrix}$
         correlation matrix
-    
 
 -   Both matrices ALWAYS square (dimension of the complete data columns)
-    and symmetric. They are denoted by S (variance) and R (correlation) in the code below 
+    and symmetric. They are denoted by S (variance) and R (correlation)
+    in the code below
 
 -   Given a dataset, it is [***these two matrices***]{.ul} containing
     the variability in the data which play a central role in data
