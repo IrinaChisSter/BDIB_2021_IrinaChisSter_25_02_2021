@@ -450,26 +450,39 @@ arrows(0,0, sqrt(vals[2])*vecs[1,2], sqrt(vals[2])*vecs[2,2], length = 0.1, lwd 
 </ul>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1BlcmZvcm0gUENBIG9uIHRoZSB0d28gdmFyaWFibGVzIGJhc2VkIG9uIGNvcnJlbGF0aW9uIChzY2FsZS4gPSBUUlVFKVxucGNhLnYxMiA8LSBwcmNvbXAoc2ltLmRhdGFbLDE6Ml0pXG5zdW1tYXJ5KHBjYS52MTIpXG4jUGxvdCBzY29yZXMgb24gUEMxIHZzLiBQQzJcbnBsb3QocGNhLnYxMiR4WywxXSwgcGNhLnYxMiR4WywyXSwgeGxhYiA9IFwiUEMxICg5MS43JSlcIiwgeWxhYiA9IFwiUEMyICg4LjMlKVwiLCB5bGltID0gYygtMS41LDEuNSksIGNleC5sYWI9MS40LCBjZXguYXhpcz0xLjQpXG5cbnBsb3QocGNhLnYxMikgIyN2aXN1YWxpemUgUEMgbG9hZGluZ3MgYXMgYmFyc1xucGxvdChwY2EudjEyLHR5cGU9XCJsaW5lc1wiKSAjIyBkaWZmZXJlbnQgd2F5IG9mIHZpc3VhbGl6aW5nXG5cbmBgYCJ9 -->
-<pre class="r"><code>#Perform PCA on the two variables based on correlation (scale. = TRUE)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuI1BlcmZvcm0gUENBIG9uIHRoZSB0d28gdmFyaWFibGVzIGJhc2VkIG9uIGNvcnJlbGF0aW9uIChzY2FsZS4gPSBUUlVFKVxucGNhLnYxMiA8LSBwcmNvbXAoc2ltLmRhdGFbLDE6Ml0pXG5zdW1tYXJ5KHBjYS52MTIpXG4jUGxvdCBzY29yZXMgb24gUEMxIHZzLiBQQzJcbnBsb3QocGNhLnYxMiR4WywxXSwgcGNhLnYxMiR4WywyXSwgeGxhYiA9IFxcUEMxICg5MS43JSlcXCwgeWxhYiA9IFxcUEMyICg4LjMlKVxcLCB5bGltID0gYygtMS41LDEuNSksIGNleC5sYWI9MS40LCBjZXguYXhpcz0xLjQpXG5cbnBsb3QocGNhLnYxMikgIyN2aXN1YWxpemUgUEMgbG9hZGluZ3MgYXMgYmFyc1xucGxvdChwY2EudjEyLHR5cGU9XFxsaW5lc1xcKSAjIyBkaWZmZXJlbnQgd2F5IG9mIHZpc3VhbGl6aW5nXG5cbmBgYFxuYGBgIn0= -->
+<pre class="r"><code>```r
+#Perform PCA on the two variables based on correlation (scale. = TRUE)
 pca.v12 &lt;- prcomp(sim.data[,1:2])
 summary(pca.v12)
 #Plot scores on PC1 vs. PC2
-plot(pca.v12$x[,1], pca.v12$x[,2], xlab = &quot;PC1 (91.7%)&quot;, ylab = &quot;PC2 (8.3%)&quot;, ylim = c(-1.5,1.5), cex.lab=1.4, cex.axis=1.4)
+plot(pca.v12$x[,1], pca.v12$x[,2], xlab = \PC1 (91.7%)\, ylab = \PC2 (8.3%)\, ylim = c(-1.5,1.5), cex.lab=1.4, cex.axis=1.4)
 
 plot(pca.v12) ##visualize PC loadings as bars
-plot(pca.v12,type=&quot;lines&quot;) ## different way of visualizing
+plot(pca.v12,type=\lines\) ## different way of visualizing
 </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<ul>
-<li>We add more variables to the data and re-run the PCA analysis</li>
-</ul>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG4jR2VuZXJhdGUgYWRkaXRpb25hbCB0d28gdmFyaWFibGVzIHNhbXBsZWQgZnJvbSBhIGJpdmFyaWF0ZSBub3JtYWwgZGlzdHJpYnV0aW9uIHdpdGggbWVhbnMgMTEwIGFuZCAxMzUsIHZhcmlhbmNlcyAyMCBhbmQgMzMgYW5kIGNvcnJlbGF0aW9uIDAuODU2XG5zaW0uZGF0YTEgPC0gbXZybm9ybShuPTEwMCwgbXUgPSBjKDExMCwxMzUpLCBTaWdtYSA9ICBtYXRyaXgoYygyMCwyMiwyMiwzMyksMiwyKSwgZW1waXJpY2FsID0gVClcbnNpbS5kYXRhMSA8LSBkYXRhLmZyYW1lKHNpbS5kYXRhMSlcblxuI0FkZCB0aGUgYWRkaXRpb25hbCB0d28gdmFyaWFibGVzIHRvIHRoZSBmaXJzdCB0d28gaW4gb25lIGRhdGEgZnJhbWVcbnNpbS5kYXRhJFgzIDwtIHNpbS5kYXRhMSRYMVxuc2ltLmRhdGEkWDQgPC0gc2ltLmRhdGExJFgyXG5zaW0uZGF0YVxuXG4jUGVyZm9ybSBQQ0Egb24gdGhlIHNtYWxsIGRhdGEgc2V0IHVzaW5nIHRoZSBwcmNvbXAgZnVuY3Rpb24gYmFzZWQgb24gdGhlIHN0YW5kYXJkaXplZCBkYXRhIG1hdHJpeCAoY29ycmVsYXRpb24gYW5kIG5vdCBjb3ZhcmlhbmNlKVxuXG5wY2EuZGF0YSA8LSBwcmNvbXAoc2ltLmRhdGEsIHNjYWxlLiA9IFRSVUUpXG5wY2EuZGF0YVxuI0NyZWF0ZSBhIFNjcmVlIHBsb3QgYW5kIEhvcm4ncyBwYXJhbGxlbCBhbmFseXNpcyB0byBkZWNpZGUgaG93IG1hbnkgY29tcG9uZW50cyB0byByZXRhaW5cbnBsb3QoYygxLDIsMyw0KSwgcGNhLmRhdGEkc2Rldl4yLCB5bGFiID0gXCJFaWdlbnZhbHVlXCIsIHhsYWIgPSBcIlByaW5jaXBhbCBjb21wb25lbnRcIiwgdHlwZSA9IFwib1wiLCBsd2QgPSAxLjUsIHBjaCA9IDE2LCBjb2wgPSBcImJsdWVcIiwgeGF4dCA9IFwiblwiLCB4bGltID0gYygwLjgsIDQuMiksIHlsaW0gPSBjKDAsIDIpLCBjZXgubGFiPTEuMywgY2V4LmF4aXM9MS4zKVxuYXhpcygxLCBhdD1jKDEsMiwzLDQpLCBsYWJlbHM9YygxLDIsMyw0KSwgY2V4LmxhYj0xLjMsIGNleC5heGlzPTEuMylcbmBgYCJ9 -->
-<pre class="r"><code>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+-   We add more variables to the data and re-run the PCA analysis
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG4jR2VuZXJhdGUgYWRkaXRpb25hbCB0d28gdmFyaWFibGVzIHNhbXBsZWQgZnJvbSBhIGJpdmFyaWF0ZSBub3JtYWwgZGlzdHJpYnV0aW9uIHdpdGggbWVhbnMgMTEwIGFuZCAxMzUsIHZhcmlhbmNlcyAyMCBhbmQgMzMgYW5kIGNvcnJlbGF0aW9uIDAuODU2XG5zaW0uZGF0YTEgPC0gbXZybm9ybShuPTEwMCwgbXUgPSBjKDExMCwxMzUpLCBTaWdtYSA9ICBtYXRyaXgoYygyMCwyMiwyMiwzMyksMiwyKSwgZW1waXJpY2FsID0gVClcbnNpbS5kYXRhMSA8LSBkYXRhLmZyYW1lKHNpbS5kYXRhMSlcblxuI0FkZCB0aGUgYWRkaXRpb25hbCB0d28gdmFyaWFibGVzIHRvIHRoZSBmaXJzdCB0d28gaW4gb25lIGRhdGEgZnJhbWVcbnNpbS5kYXRhJFgzIDwtIHNpbS5kYXRhMSRYMVxuc2ltLmRhdGEkWDQgPC0gc2ltLmRhdGExJFgyXG5zaW0uZGF0YVxuXG4jUGVyZm9ybSBQQ0Egb24gdGhlIHNtYWxsIGRhdGEgc2V0IHVzaW5nIHRoZSBwcmNvbXAgZnVuY3Rpb24gYmFzZWQgb24gdGhlIHN0YW5kYXJkaXplZCBkYXRhIG1hdHJpeCAoY29ycmVsYXRpb24gYW5kIG5vdCBjb3ZhcmlhbmNlKVxuXG5wY2EuZGF0YSA8LSBwcmNvbXAoc2ltLmRhdGEsIHNjYWxlLiA9IFRSVUUpXG5wY2EuZGF0YVxuI0NyZWF0ZSBhIFNjcmVlIHBsb3QgYW5kIEhvcm4ncyBwYXJhbGxlbCBhbmFseXNpcyB0byBkZWNpZGUgaG93IG1hbnkgY29tcG9uZW50cyB0byByZXRhaW5cbnBsb3QoYygxLDIsMyw0KSwgcGNhLmRhdGEkc2Rldl4yLCB5bGFiID0gXCJFaWdlbnZhbHVlXCIsIHhsYWIgPSBcIlByaW5jaXBhbCBjb21wb25lbnRcIiwgdHlwZSA9IFwib1wiLCBsd2QgPSAxLjUsIHBjaCA9IDE2LCBjb2wgPSBcImJsdWVcIiwgeGF4dCA9IFwiblwiLCB4bGltID0gYygwLjgsIDQuMiksIHlsaW0gPSBjKDAsIDIpLCBjZXgubGFiPTEuMywgY2V4LmF4aXM9MS4zKVxuYXhpcygxLCBhdD1jKDEsMiwzLDQpLCBsYWJlbHM9YygxLDIsMyw0KSwgY2V4LmxhYj0xLjMsIGNleC5heGlzPTEuMylcbmBgYCJ9 --&gt;
+
+```r
+
 #Generate additional two variables sampled from a bivariate normal distribution with means 110 and 135, variances 20 and 33 and correlation 0.856
 sim.data1 &lt;- mvrnorm(n=100, mu = c(110,135), Sigma =  matrix(c(20,22,22,33),2,2), empirical = T)
 sim.data1 &lt;- data.frame(sim.data1)
@@ -612,8 +625,9 @@ R</code></pre>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyNGaW5kIHRoZSBlaWdlbnZhbHVlcyBhbmQgZWlnZW52ZWN0b3JzIG9mIHRoZSBSIG1hdHJpeC5cbnIuZWlnZW4gPC0gZWlnZW4oUilcblxuIyNBcyB3aXRoIHRoZSBjb3ZhcmlhbmNlIG1hdHJpeCwgd2UgY2FuIGNvbXB1dGUgdGhlIHByb3BvcnRpb24gb2YgdG90YWwgdmFyaWFuY2UgZXhwbGFpbmVkIGJ5IHRoZSBlaWdlbnZhbHVlcy5cblxuZm9yIChyIGluIHIuZWlnZW4kdmFsdWVzKSB7XG4gIHByaW50KHIgLyBzdW0oci5laWdlbiR2YWx1ZXMpKSBcbn1cbmBgYCJ9 -->
-<pre class="r"><code>##Find the eigenvalues and eigenvectors of the R matrix.
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuIyNGaW5kIHRoZSBlaWdlbnZhbHVlcyBhbmQgZWlnZW52ZWN0b3JzIG9mIHRoZSBSIG1hdHJpeC5cbnIuZWlnZW4gPC0gZWlnZW4oUilcblxuIyNBcyB3aXRoIHRoZSBjb3ZhcmlhbmNlIG1hdHJpeCwgd2UgY2FuIGNvbXB1dGUgdGhlIHByb3BvcnRpb24gb2YgdG90YWwgdmFyaWFuY2UgZXhwbGFpbmVkIGJ5IHRoZSBlaWdlbnZhbHVlcy5cblxuZm9yIChyIGluIHIuZWlnZW4kdmFsdWVzKSB7XG4gIHByaW50KHIgLyBzdW0oci5laWdlbiR2YWx1ZXMpKSBcbn1cbmBgYFxuYGBgIn0= -->
+<pre class="r"><code>```r
+##Find the eigenvalues and eigenvectors of the R matrix.
 r.eigen &lt;- eigen(R)
 
 ##As with the covariance matrix, we can compute the proportion of total variance explained by the eigenvalues.
@@ -621,16 +635,33 @@ r.eigen &lt;- eigen(R)
 for (r in r.eigen$values) {
   print(r / sum(r.eigen$values)) 
 }</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<ul>
-<li>What is readily noticeable is the first eigenvalue accounts for 53% of total variance compared with 87% of the variance of the S matrix. The first two components of R only account for 73% of total variance while the last two components have little significance. Thus, one may want to keep the first four components rather than the first two with the S matrix.</li>
-</ul>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyNUbyBwZXJmb3JtIHByaW5jaXBhbCBjb21wb25lbnQgYW5hbHlzaXMgdXNpbmcgdGhlIGNvcnJlbGF0aW9uIG1hdHJpeCB1c2luZyB0aGUgcHJjb21wKCkgZnVuY3Rpb24sIHNldCB0aGUgc2NhbGUgYXJndW1lbnQgdG8gVFJVRS4gVGhlIGRlZmF1bHQgaXMgZmFsc2VcblxucGRfZGF0YS5wY2Euc2NhbGVkIDwtIHByY29tcChwZF9kYXRhWywyOjddLCBzY2FsZSA9IFRSVUUpXG5wZF9kYXRhLnBjYS5zY2FsZWRcblxuc3VtbWFyeShwZF9kYXRhLnBjYS5zY2FsZWQpXG5gYGAifQ== -->
-<pre class="r"><code>##To perform principal component analysis using the correlation matrix using the prcomp() function, set the scale argument to TRUE. The default is false
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+-   What is readily noticeable is the first eigenvalue accounts for 53%
+    of total variance compared with 87% of the variance of the S matrix.
+    The first two components of R only account for 73% of total variance
+    while the last two components have little significance. Thus, one
+    may want to keep the first four components rather than the first two
+    with the S matrix.
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyNUbyBwZXJmb3JtIHByaW5jaXBhbCBjb21wb25lbnQgYW5hbHlzaXMgdXNpbmcgdGhlIGNvcnJlbGF0aW9uIG1hdHJpeCB1c2luZyB0aGUgcHJjb21wKCkgZnVuY3Rpb24sIHNldCB0aGUgc2NhbGUgYXJndW1lbnQgdG8gVFJVRS4gVGhlIGRlZmF1bHQgaXMgZmFsc2VcblxucGRfZGF0YS5wY2Euc2NhbGVkIDwtIHByY29tcChwZF9kYXRhWywyOjddLCBzY2FsZSA9IFRSVUUpXG5wZF9kYXRhLnBjYS5zY2FsZWRcblxuc3VtbWFyeShwZF9kYXRhLnBjYS5zY2FsZWQpXG5gYGAifQ== --&gt;
+
+```r
+##To perform principal component analysis using the correlation matrix using the prcomp() function, set the scale argument to TRUE. The default is false
 
 pd_data.pca.scaled &lt;- prcomp(pd_data[,2:7], scale = TRUE)
 pd_data.pca.scaled
